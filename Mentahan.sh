@@ -20,8 +20,8 @@ sudo apt install -y isc-dhcp-server iptables iptables-persistent
 # Mengonfigurasi DHCP server
 cat <<EOF | sudo tee /etc/dhcp/dhcpd.conf
 subnet 192.168.9.0 netmask 255.255.255.0 {
-    range 192.168.9.10 192.168.9.100;
-    option routers 192.168.9.1;
+    range 192.168.9.10 192.168.36.100;
+    option routers 192.168.36.1;
     option domain-name-servers 8.8.8.8, 8.8.4.4;
 }
 EOF
@@ -38,7 +38,7 @@ network:
      dhcp4: true
     enp0s8:
       addresses:
-        - 192.168.9.1/24
+        - 192.168.36.1/24
       dhcp4: no
 EOF
 
